@@ -1,9 +1,13 @@
+*{
+  box-sizing: border-box;
+}
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   background-color: peachpuff;
+  overflow-x: hidden;
 }
 
 .container {
@@ -43,6 +47,9 @@ background-color: aquamarine;
   gap: 10px;
   padding: 1rem;
   align-content: stretch;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .card {
