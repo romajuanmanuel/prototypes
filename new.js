@@ -22,7 +22,20 @@ function addBookToLibrary(title, author, pages, hasRead) {
 }
 /****** CLEAN FUNCTION ***********/
 
-
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('cleanBtn').addEventListener('click', () => {
+      const container = document.getElementById("library-container");
+      if(container) {
+        container.innerHTML = "";
+        console.log("Contenedor limpiado");
+        
+      } else {
+        console.error("No se encontró #library-container");
+      }
+      
+    });
+    library = [];
+  });
 
 /****** FUNCIÓN PARA RENDERIZAR ***********/
 function renderLibraryCards(booksArray) {
@@ -85,7 +98,7 @@ closeDialogBtn.addEventListener('click', () => {
 
 /*********** BOTÓN DE TEST *************/
 document.getElementById('btnSaludar').addEventListener('click', () => {
-    if (library.length > 0) return;
+    /*if (library.length > 0) return;*/ /* deprecated */
 
     addBookToLibrary("Dune", "Frank Herbert", 412, true);
     addBookToLibrary("1984", "George Orwell", 328, true);
