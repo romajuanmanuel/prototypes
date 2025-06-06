@@ -5,8 +5,9 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background-color: peachpuff;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdf6f0; /* fondo claro aesthetic */
+  color: #2c2c2c;
   overflow-x: hidden;
 }
 
@@ -27,17 +28,22 @@ html, body {
   flex-direction: row;
   align-items: center;
   gap:15px;
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
 }
 
-#btnSaludar{
-  background-color: darkcyan;
-  border-radius:  0.5em;
-  height: 50%;
-}
+#btnSaludar,#newBook{
+  background-color: #a3c4f3;
+  color: #fff;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;}
 
-#btnSaludar:hover{
-cursor:pointer;
-background-color: aquamarine;
+#btnSaludar,#newBook:hover{
+  cursor: pointer;
+  background-color: #85a8e0;
 }
 
 .cards {
@@ -57,13 +63,78 @@ background-color: aquamarine;
   background-color: #fff;
   border-radius: 0.75rem;
   padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
   aspect-ratio: 1 / 1;
   transition: transform 0.2s ease;
   flex-direction: row;
-  border-left: 5px solid #ff99f7;
+  border-left: 5px solid #ffb3c6; /* rosa pastel */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cozyFadeIn 0.6s ease-out forwards;
+}
+
+.card.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cozyFadeIn 0.6s ease-out forwards;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #fef0f5;
+}
+
+@keyframes cozyFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+#toggleTheme {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#toggleTheme:hover {
+  transform: scale(1.2);
+}
+
+
+body.dark {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+
+body.dark .header {
+  background-color: #2c2c2c;
+  border-bottom: 1px solid #444;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.5);
+}
+
+body.dark #btnSaludar,#newBook {
+  background-color: #4d88ff;
+  color: #ffffff;
+}
+
+body.dark #btnSaludar,#newBook:hover {
+  background-color: #3366cc;
+}
+
+body.dark .card {
+  background-color: #2e2e2e;
+  border-left: 5px solid #a97bff;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .card:hover {
+  background-color: #3a3a3a;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), 
+              box-shadow 0.3s ease;
 }

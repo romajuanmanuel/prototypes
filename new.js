@@ -31,9 +31,10 @@ function renderLibraryCards(booksArray) {
 
     container.innerHTML = "";
 
-    booksArray.forEach(book => {
+    booksArray.forEach((book, index) => {
         const card = document.createElement("div");
-        card.className = "card";
+        card.className = "card animate";
+        card.style.animationDelay = `${index * 50}ms`; // efecto escalonado
         card.innerHTML = `
             <h3>Title: ${book.title}</h3>
             <h3>Author: ${book.author}</h3>
@@ -42,7 +43,28 @@ function renderLibraryCards(booksArray) {
         `;
         container.appendChild(card);
     });
-}
+} 
+
+/*********** Dark Mode *************/
+
+  const toggleBtn = document.getElementById('toggleTheme');
+  const body = document.body;
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'dark') {
+    body.classList.add('dark');
+    toggleBtn.textContent = '🌞';
+  } else {
+    toggleBtn.textContent = '🌙';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    const isDark = body.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    toggleBtn.textContent = isDark ? '🌞' : '🌙';
+  });
+
+
 
 /*********** BOTÓN DE TEST *************/
 document.getElementById('btnSaludar').addEventListener('click', () => {
