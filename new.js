@@ -82,12 +82,12 @@ toggleBtn.addEventListener('click', () => {
 
 /************ DIALOG ***************** */
 
-const newBookBtn = document.getElementById('openDialogBtn');
+const newBookBtn = document.getElementById('newBookBtn');
 const closeDialogBtn = document.getElementById('closeDialogBtn');
 const dialog = document.getElementById('myDialog');
 
 // Abrir el diálogo
-openDialogBtn.addEventListener('click', () => {
+newBookBtn.addEventListener('click', () => {
     dialog.showModal();
 });
 
