@@ -20,6 +20,9 @@ function addBookToLibrary(title, author, pages, hasRead) {
         library.push(newBook);
     }
 }
+/****** CLEAN FUNCTION ***********/
+
+
 
 /****** FUNCIÓN PARA RENDERIZAR ***********/
 function renderLibraryCards(booksArray) {
