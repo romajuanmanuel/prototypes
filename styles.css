@@ -1,0 +1,63 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: peachpuff;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr; /* header y resto */
+  grid-template-areas:
+    "header"
+    "cards";
+}
+
+.header {
+  grid-area: header;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap:15px;
+}
+
+#btnSaludar{
+  background-color: darkcyan;
+  border-radius:  0.5em;
+  height: 50%;
+}
+
+#btnSaludar:hover{
+cursor:pointer;
+background-color: aquamarine;
+}
+
+.cards {
+  grid-area: cards;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 1rem;
+  align-content: stretch;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 1 / 1;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 5px solid #ff99f7;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
