@@ -38,7 +38,7 @@ function renderLibraryCards(booksArray) {
             <h3>Title: ${book.title}</h3>
             <h3>Author: ${book.author}</h3>
             <h3>Pages: ${book.pages}</h3>
-            <h3>Readed?: ${book.hasRead ? "YES" : "NO"}</h3>
+            <h3>Readed: ${book.hasRead ? "YES" : "NO"}</h3>
         `;
         container.appendChild(card);
     });
