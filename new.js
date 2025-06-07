@@ -27,6 +27,12 @@ function addBookToLibrary(title, author, pages, hasRead) {
     const newBook = new Book(crypto.randomUUID(), title, author, pages, hasRead);
     library.push(newBook);
 }
+document.getElementById("title").addEventListener("input", () => {
+    document.getElementById("bookExistsMsg").style.display = "none";
+});
+document.getElementById("author").addEventListener("input", () => {
+    document.getElementById("bookExistsMsg").style.display = "none";
+});
 
 
 document.getElementById('addBookBtn').addEventListener('click', () => {
@@ -35,8 +41,9 @@ document.getElementById('addBookBtn').addEventListener('click', () => {
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
     const readValue = document.querySelector('input[name="read"]:checked')?.value;
+    const hasRead = readValue === "true";
 
-    addBookToLibrary(title, author, pages, readValue);
+    addBookToLibrary(title, author, pages, hasRead);
 
     renderLibraryCards(library);
 
