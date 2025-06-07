@@ -104,12 +104,12 @@ body.dark #cleanBtn:hover {
 
 .card.animate {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(10px);
   animation: cozyFadeIn 0.6s ease-out forwards;
 }
 
 .card:hover {
-  transform: translateY(-12px) scale(1.02);
+  transform: translateY(-5px) scale(1.01);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   background-color: #fef0f5;
 }
@@ -117,7 +117,6 @@ body.dark #cleanBtn:hover {
 @keyframes cozyFadeIn {
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -133,6 +132,16 @@ body.dark #cleanBtn:hover {
 
 #toggleTheme:hover {
   transform: scale(1.2);
+}
+
+
+/***************************************************************/
+
+fieldset{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
 }
 
 /********************************** dark mode ****************/

@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       
     });
-    library = [];
   });
 
 /****** FUNCIÓN PARA RENDERIZAR ***********/
