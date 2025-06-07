@@ -20,21 +20,34 @@ function addBookToLibrary(title, author, pages, hasRead) {
         library.push(newBook);
     }
 }
+
+document.getElementById('addBookBtn').addEventListener('click', () => {
+
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const readValue = document.querySelector('input[name="read"]:checked')?.value;
+
+    addBookToLibrary(title, author, pages, readValue);
+
+    renderLibraryCards(library);
+
+});
 /****** CLEAN FUNCTION ***********/
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('cleanBtn').addEventListener('click', () => {
-      const container = document.getElementById("library-container");
-      if(container) {
-        container.innerHTML = "";
-        console.log("Contenedor limpiado");
-        
-      } else {
-        console.error("No se encontró #library-container");
-      }
-      
+        const container = document.getElementById("library-container");
+        if (container) {
+            container.innerHTML = "";
+            console.log("Contenedor limpiado");
+
+        } else {
+            console.error("No se encontró #library-container");
+        }
+
     });
-  });
+});
 
 /****** FUNCIÓN PARA RENDERIZAR ***********/
 function renderLibraryCards(booksArray) {
@@ -95,9 +108,9 @@ closeDialogBtn.addEventListener('click', () => {
     dialog.close();
 });
 
-/*********** BOTÓN DE TEST *************/
+/*********** BOTÓN DE TEST ************
 document.getElementById('btnSaludar').addEventListener('click', () => {
-    /*if (library.length > 0) return;*/ /* deprecated */
+    /*if (library.length > 0) return;*/ /* deprecated 
 
     addBookToLibrary("Dune", "Frank Herbert", 412, true);
     addBookToLibrary("1984", "George Orwell", 328, true);
@@ -155,4 +168,7 @@ document.getElementById('btnSaludar').addEventListener('click', () => {
 
     renderLibraryCards(library);
 });
+
+/****************************** */
+
 
