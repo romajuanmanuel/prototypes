@@ -15,11 +15,19 @@ class Book {
 /****** FUNCIÓN PARA AÑADIR LIBROS ***********/
 function addBookToLibrary(title, author, pages, hasRead) {
     const exists = library.some(book => book.title === title && book.author === author);
-    if (!exists) {
-        const newBook = new Book(crypto.randomUUID(), title, author, pages, hasRead);
-        library.push(newBook);
+    const msg = document.getElementById("bookExistsMsg");
+
+    if (exists) {
+        msg.style.display = "block";
+        return;
     }
+
+    msg.style.display = "none"; // Ocultar si todo está bien
+
+    const newBook = new Book(crypto.randomUUID(), title, author, pages, hasRead);
+    library.push(newBook);
 }
+
 
 document.getElementById('addBookBtn').addEventListener('click', () => {
 
