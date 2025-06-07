@@ -48,6 +48,9 @@ document.getElementById('addBookBtn').addEventListener('click', () => {
     renderLibraryCards(library);
 
 });
+/****** REMOVE BOOK FUNCTION ***********/
+
+
 /****** CLEAN FUNCTION ***********/
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -77,6 +80,7 @@ function renderLibraryCards(booksArray) {
     booksArray.forEach((book, index) => {
         const card = document.createElement("div");
         card.className = "card animate";
+        card.dataset.bookId = book.id;
         card.style.animationDelay = `${index * 50}ms`; // efecto escalonado
         card.innerHTML = `
             <h3>Title: ${book.title}</h3>
@@ -86,7 +90,34 @@ function renderLibraryCards(booksArray) {
         `;
         container.appendChild(card);
     });
+    document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("click", () => {
+            const bookId = card.dataset.bookId;
+            const book = library.find(b => b.id === bookId);
+            if (book) {
+                openBookDialog(book);
+            }
+        });
+    });
 }
+/*********** OPEN BOOK DIALOG *************/
+
+function openBookDialog(book) {
+    const dialog = document.getElementById("bookInfoDialog");
+    const content = document.getElementById("bookInfoContent");
+
+    content.innerHTML = `
+        <p><strong>Título:</strong> ${book.title}</p>
+        <p><strong>Autor:</strong> ${book.author}</p>
+        <p><strong>Páginas:</strong> ${book.pages}</p>
+        <p><strong>¿Leído?:</strong> ${book.hasRead ? "Sí" : "No"}</p>
+    `;
+
+    dialog.showModal();
+}
+document.getElementById("closeBookInfoBtn").addEventListener("click", () => {
+    document.getElementById("bookInfoDialog").close();
+});
 
 /*********** Dark Mode *************/
 
