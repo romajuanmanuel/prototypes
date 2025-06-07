@@ -154,11 +154,17 @@ closeDialogBtn.addEventListener('click', () => {
     dialog.close();
 });
 
-/*********** BOTÓN DE TEST ************
+/*********** BOTÓN DE TEST ************/
 document.getElementById('btnSaludar').addEventListener('click', () => {
-    /*if (library.length > 0) return;*/ /* deprecated 
+    // if (library.length > 0) return;
+    renderLibraryCards(library);
 
-    addBookToLibrary("Dune", "Frank Herbert", 412, true);
+
+
+
+});
+
+/***************addBookToLibrary("Dune", "Frank Herbert", 412, true);
     addBookToLibrary("1984", "George Orwell", 328, true);
     addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
     addBookToLibrary("Fahrenheit 451", "Ray Bradbury", 194, true);
@@ -211,10 +217,6 @@ document.getElementById('btnSaludar').addEventListener('click', () => {
     addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 671, false);
     addBookToLibrary("The Brothers Karamazov", "Fyodor Dostoevsky", 796, false);
     addBookToLibrary("The Idiot", "Fyodor Dostoevsky", 656, false);
-
-    renderLibraryCards(library);
-});
-
-/****************************** */
+ * *************** */
 
 
