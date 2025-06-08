@@ -11,6 +11,9 @@ class Book {
         this.hasRead = hasRead;
     }
 }
+Book.prototype.toggleRead = function () {
+    this.hasRead = !this.hasRead;
+};
 
 /****** ADD BOOK ***********/
 function addBookToLibrary(title, author, pages, hasRead) {
@@ -93,14 +96,24 @@ function renderLibraryCards(booksArray) {
         const card = document.createElement("div");
         card.className = "card animate";
         card.dataset.bookId = book.id;
-        card.style.animationDelay = `${index * 50}ms`; 
+        card.style.animationDelay = `${index * 50}ms`;
         card.innerHTML = `
             <h3>Title: ${book.title}</h3>
             <h3>Author: ${book.author}</h3>
             <h3>Pages: ${book.pages}</h3>
-            <h3>Readed: ${book.hasRead ? "YES" : "NO"}</h3>
+            <h3>Readed: <span class="read-status">${book.hasRead ? "YES" : "NO"}</span></h3>
+    <button class="toggle-read-btn">Toggle Read</button>
         `;
         container.appendChild(card);
+        const toggleBtn = card.querySelector(".toggle-read-btn");
+        const readStatus = card.querySelector(".read-status");
+
+        toggleBtn.addEventListener("click", (e) => {
+            e.stopPropagation(); // Evita abrir el diálogo
+
+            book.toggleRead(); // Cambia el estado del objeto
+            readStatus.textContent = book.hasRead ? "YES" : "NO"; // Actualiza solo el texto visible
+        });
     });
     document.querySelectorAll(".card").forEach(card => {
         card.addEventListener("click", () => {
@@ -139,8 +152,8 @@ document.getElementById("deleteBookBtn").addEventListener("click", () => {
     const bookId = dialog.dataset.bookId;
 
     if (bookId) {
-        removeBookById(bookId);  
-        dialog.close();          
+        removeBookById(bookId);
+        dialog.close();
     } else {
         console.error("No se encontró el ID del libro para eliminar.");
     }

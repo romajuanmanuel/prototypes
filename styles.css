@@ -113,6 +113,8 @@ body.dark #cleanBtn:hover {
   word-break: break-word;
 }
 
+
+
 #bookInfoDialog {
   box-sizing: border-box;
   background-color: #fff;
@@ -196,7 +198,7 @@ label {
   justify-content: space-around;
   padding: 0.5rem;
 }
-#closeDialogBtn,#addBookBtn,#deleteBookBtn,#closeBookInfoBtn {
+#closeDialogBtn,#addBookBtn,#deleteBookBtn,#closeBookInfoBtn, .card button {
   padding: 0.75rem 1.5rem;
   background-color: #e53935;
   color: white;
