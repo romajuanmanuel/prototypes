@@ -195,7 +195,7 @@ closeDialogBtn.addEventListener('click', () => {
 });
 
 /*********** BOTÓN DE TEST ************/
-document.getElementById('btnSaludar').addEventListener('click', () => {
+document.getElementById('generateBtn').addEventListener('click', () => {
     // if (library.length > 0) return;
     addBookToLibrary("1984", "George Orwell", 328, true);
     addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);

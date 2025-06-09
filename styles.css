@@ -9,7 +9,6 @@ body {
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #fdf6f0;
-  /* fondo claro aesthetic */
   color: #2c2c2c;
   overflow-x: hidden;
 }
@@ -18,7 +17,6 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr;
-  /* header y resto */
   grid-template-areas:
     "header"
     "cards";
@@ -42,7 +40,7 @@ body {
   box-sizing: border-box;
 }
 /********************************** BUTTONS ****************/
-#btnSaludar,
+#generateBtn,
 #newBookBtn,
 #cleanBtn {
   background-color: #a3c4f3;
@@ -54,21 +52,21 @@ body {
   transition: background-color 0.3s ease;
 }
 
-#btnSaludar,
+#generateBtn,
 #newBookBtn,
 #cleanBtn:hover {
   cursor: pointer;
   background-color: #85a8e0;
 }
 
-body.dark #btnSaludar,
+body.dark #generateBtn,
 body.dark #newBookBtn,
 body.dark #cleanBtn {
   background-color: #4d88ff;
   color: #ffffff;
 }
 
-body.dark #btnSaludar:hover,
+body.dark #generateBtn:hover,
 body.dark #newBookBtn:hover,
 body.dark #cleanBtn:hover {
   background-color: #3366cc;
@@ -97,7 +95,6 @@ body.dark #cleanBtn:hover {
   transition: transform 0.2s ease;
   flex-direction: row;
   border-left: 5px solid #ffb3c6;
-  /* rosa pastel */
   opacity: 0;
   transform: translateY(20px);
   animation: cozyFadeIn 0.6s ease-out forwards;
